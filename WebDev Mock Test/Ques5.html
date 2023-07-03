@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .container {
+            overflow: hidden;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(3, 300px);
+            /* Creates three equal-sized columns */
+            grid-template-rows: repeat(3, 200px);
+            /* Creates three equal-sized rows */
+        }
+
+        .box {
+            background: #141033;
+            /* Sets the background color of the boxes */
+        }
+
+        .box4 {
+            grid-row-start: 2;
+            grid-row-end: 4;
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+        <div class="box box6">box6</div>
+    </div>
+</body>
+
+</html>

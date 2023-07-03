@@ -1,0 +1,44 @@
+The execution context is a fundamental concept in JavaScript that defines the environment in which code is executed. It consists of the variables, functions, and scope chains that are currently active. Every time a function is invoked or a block of code is executed, a new execution context is created.
+
+To understand execution context better, let's delve into its components and how they interact:
+
+Global Execution Context:
+The global execution context is the initial execution context created when the JavaScript program starts running. It represents the global scope and includes variables and functions defined in the global scope. It is associated with the global object (e.g., window in browsers, global in Node.js).
+
+Function Execution Context:
+Whenever a function is called, a new function execution context is created for that function. Each function has its own execution context, which includes its own variables, function arguments, and references to its outer environment.
+
+Block Execution Context (ES6+):
+With the introduction of block-level scoping in ES6, block statements like if, for, and while can also create their own execution contexts. These block execution contexts have their own variables and a reference to the outer environment.
+
+Each execution context comprises the following components:
+
+Variable Environment: It contains all the variables declared within the context, including function arguments and local variables. It provides the scope for variable lookup.
+Lexical Environment: It is similar to the variable environment and holds all the variables and functions declared within the context. It also maintains a reference to the outer environment for scope chain lookup.
+Scope Chain: It is a list of lexical environments that allows variables to be resolved from outer environments. It is used during variable lookup when a variable is not found in the current environment.
+This Value: It refers to the current object to which a function or method belongs. Its value depends on how a function is called or a method is invoked.
+Here's a diagram depicting the relationship between the global execution context and multiple function execution contexts:
+
+-------------------------       -------------------------  
+| Global Execution     |       | Function Execution 1   |
+| Context              |       | Context                |
+|                       |       |                       |
+| Variable Environment |       | Variable Environment   |
+| Lexical Environment  |       | Lexical Environment    |
+| Scope Chain          |       | Scope Chain            |
+| This Value           |       | This Value             |
+-------------------------       -------------------------
+                |
+                |
+                |
+                v
+ -------------------------
+| Function Execution 2   |
+| Context                |
+|                       |
+| Variable Environment   |
+| Lexical Environment    |
+| Scope Chain            |
+| This Value             |
+ -------------------------
+The diagram illustrates the global execution context at the top and two function execution contexts below it. Each function execution context maintains its own set of variables and references to its outer environment (lexical environment and scope chain).

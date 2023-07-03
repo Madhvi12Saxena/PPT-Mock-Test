@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+            font-family: 'poppins', sans-serif;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+            background: #ffffff;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+        ul {
+            list-style: none;
+        }
+        button {
+            padding: 15px 25px;
+            background: #ffff00;
+            border-radius: 100px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 1.7px solid #3a3a3a;
+            cursor: pointer;
+        }
+        .news, .botton-news {
+            background: #000000;
+            padding: 10px;
+            font-size: 15px;
+            text-align: center;
+            color: #ffffff;
+        }
+        nav {
+            justify-content: space-around;
+            height: 80px;
+            background: #ffffff;
+        }
+        .left-nav, .right-nav{
+            gap: 25px;
+        }
+        .left-nav li {
+            font-size: 18px;
+            color: #575252;
+        }
+        .right-nav button:first-child {
+            background: transparent;
+        }
+        .main-section {
+            width: 100vw;
+            justify-content: space-between;
+        }
+        .main-section .left-section {
+            width: 45%;
+        }
+        .left-section {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+            padding-left: 100px;
+            gap: 7px;
+        }
+        .left-section h1 {
+            font-weight: 500;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 35px;
+            color: #161111;
+        }
+        .left-section p {
+            font-size: 17px;
+            color: #383838d3;
+            line-height: 17px;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 0.7px;
+            word-spacing: 2px;
+        }
+        .main-section .right-section {
+            width: 55%;
+        }
+        .right-section img {
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- some important news show on the top of the website -->
+    <div class="news">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas, molestiae?</div>
+
+    <!-- this is navbar -->
+    <nav class="flex">
+        <ul class="left-nav flex">
+            <li>Products</li>
+            <li>Resources</li>
+            <li>Lorem</li>
+            <li>Pricing</li>
+        </ul>
+        <ul class="right-nav flex">
+            <button>Login</button>
+            <button>Signup</button>
+        </ul>
+    </nav>
+
+    <!-- this is hero section -->
+    <section class="flex main-section">
+        <div class="left-section flex">
+            <p>Lorem, ipsum dolor.</p>
+            <h1>Create must clicking landing page</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum laboriosam dicta a id magni fugit nulla, eveniet voluptates blanditiis libero rem temporibus modi. Tenetur hic ipsa harum odit maiores amet molestias vitae possimus numquam magnam officia nesciunt aperiam architecto aliquid fugiat minus nihil dolore, quas voluptatibus mollitia hello .</p>
+            <button>user building</button>
+        </div>
+        <div class="right-section flex">
+            <img src="./asset/photo.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- this is bottom news -->
+    <div class="botton-news">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi dolor ipsam enim facilis ipsa expedita libero aliquam quibusdam ullam possimus, commodi tempore repudiandae iusto autem hhhhloi hili ilhih Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus aliquam possimus delectus quasi? Impe fuga, architecto id..
+    </div>
+</body>
+</html>
