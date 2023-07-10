@@ -1,0 +1,178 @@
+<!--Create a form with proper form validation using JavaScript 
+(name, email, phone number, password, age, gender, date, color picker)-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h2>Registration Form</h2>
+
+  <form id="registrationForm" onsubmit="validateForm(event)">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+      <span id="nameError" class="error"></span>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <span id="emailError" class="error"></span>
+    </div>
+
+    <div>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" required>
+      <span id="phoneError" class="error"></span>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+      <span id="passwordError" class="error"></span>
+    </div>
+
+    <div>
+      <label for="age">Age:</label>
+      <input type="number" id="age" required>
+      <span id="ageError" class="error"></span>
+    </div>
+
+    <div>
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <span id="genderError" class="error"></span>
+    </div>
+
+    <div>
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required>
+      <span id="dobError" class="error"></span>
+    </div>
+
+    <div>
+      <label for="color">Favorite Color:</label>
+      <input type="color" id="color" required>
+      <span id="colorError" class="error"></span>
+    </div>
+
+    <div>
+      <input type="submit" value="Register">
+    </div>
+  </form>
+
+  <script>
+    function validateForm(event) {
+      event.preventDefault();
+
+      // Clear previous error messages
+      clearErrors();
+
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var password = document.getElementById('password').value;
+      var age = document.getElementById('age').value;
+      var gender = document.getElementById('gender').value;
+      var dob = document.getElementById('dob').value;
+      var color = document.getElementById('color').value;
+
+      var isValid = true;
+
+      // Name validation
+      if (!name) {
+        isValid = false;
+        displayError('nameError', 'Name is required.');
+      }
+
+      // Email validation
+      if (!email) {
+        isValid = false;
+        displayError('emailError', 'Email is required.');
+      } else if (!isValidEmail(email)) {
+        isValid = false;
+        displayError('emailError', 'Invalid email format.');
+      }
+
+      // Phone number validation
+      if (!phone) {
+        isValid = false;
+        displayError('phoneError', 'Phone number is required.');
+      } else if (!isValidPhoneNumber(phone)) {
+        isValid = false;
+        displayError('phoneError', 'Invalid phone number format.');
+      }
+
+      // Password validation
+      if (!password) {
+        isValid = false;
+        displayError('passwordError', 'Password is required.');
+      }
+
+      // Age validation
+      if (!age) {
+        isValid = false;
+        displayError('ageError', 'Age is required.');
+      }
+
+      // Gender validation
+      if (!gender) {
+        isValid = false;
+        displayError('genderError', 'Gender is required.');
+      }
+
+      // Date of Birth validation
+      if (!dob) {
+        isValid = false;
+        displayError('dobError', 'Date of Birth is required.');
+      }
+
+      // Favorite color validation
+      if (!color) {
+        isValid = false;
+        displayError('colorError', 'Favorite color is required.');
+      }
+
+      // If all validations pass, submit the form
+      if (isValid) {
+        document.getElementById('registrationForm').submit();
+      }
+    }
+
+    function displayError(elementId, errorMessage) {
+      var errorElement = document.getElementById(elementId);
+      errorElement.textContent = errorMessage;
+    }
+
+    function clearErrors() {
+      var errorElements = document.getElementsByClassName('error');
+      for (var i = 0; i < errorElements.length; i++) {
+        errorElements[i].textContent = '';
+      }
+    }
+
+    function isValidEmail(email) {
+      // Regular expression for email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function isValidPhoneNumber(phone) {
+      // Regular expression for phone number validation
+      var phoneRegex = /^\d{10}$/;
+      return phoneRegex.test(phone);
+    }
+  </script>
+</body>
+</html>

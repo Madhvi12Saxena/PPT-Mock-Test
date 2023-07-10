@@ -1,0 +1,82 @@
+<!--Create a custom modal window using HTML, CSS, and JavaScript. On clicking a button the modal window should appear and
+the user can click outside the modal window to close the modal along with a close button which is inside the modal. 
+Also when the modal is open the window should not be scrollable.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    /* Prevent scrolling when modal is open */
+    body.modal-open {
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <h2>Modal Window Example</h2>
+
+  <button onclick="openModal()">Open Modal</button>
+
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Modal Content</h3>
+      <p>This is a modal window. You can add any content here.</p>
+    </div>
+  </div>
+
+  <script>
+    var modal = document.getElementById('myModal');
+
+    function openModal() {
+      modal.style.display = 'block';
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+      document.body.classList.remove('modal-open');
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!--Build a responsive Navbar, on smaller screens it should be a hamburger 
+menu which on click should reveal the menu items nicely, 
+and on larger screens they should be displayed directly on the screen.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Navbar styles */
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .navbar-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .navbar-menu a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* Hamburger menu styles */
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger-menu .line {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin-bottom: 3px;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .navbar-menu {
+        display: none;
+      }
+
+      .hamburger-menu {
+        display: flex;
+      }
+
+      .navbar-menu.open {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">My Website</div>
+    <div class="navbar-menu">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </nav>
+
+  <script>
+    function toggleMenu() {
+      var navbarMenu = document.querySelector('.navbar-menu');
+      navbarMenu.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
